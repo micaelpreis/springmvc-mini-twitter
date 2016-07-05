@@ -21,6 +21,8 @@ Create the backend for a mini messaging service, inspired by Twitter. It should 
 
 #### Endpoints
 
+* **POST** - /tweet/create - create a new tweet
+  * tweet
 * **GET** - /tweets?search=[query] - search for tweets of all users
 * **GET** - /tweets/[username]?search=[query] - search for tweets of specific user
 * **GET** - /following - list of users the user follows
