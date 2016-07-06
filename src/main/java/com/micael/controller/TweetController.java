@@ -3,6 +3,8 @@ package com.micael.controller;
 import com.micael.dao.TweetDAO;
 import com.micael.model.Tweet;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -26,12 +28,16 @@ public class TweetController {
     }
 
     // NEW TWEET
-    @RequestMapping(value = "/tweet/create", method = RequestMethod.POST)
+    @RequestMapping(value = "/tweet/create", method = RequestMethod.POST, produces = {"application/json","application/xml"})
     @ResponseBody
-    public ModelAndView createTweet(@ModelAttribute Tweet tweet, RedirectAttributes redir) {
-        tweetDAO.add(tweet);
-        redir.addFlashAttribute("notice", "Tweet successfully created!");
-        return new ModelAndView("redirect:/index");
+    public ResponseEntity createTweet(@ModelAttribute("tweetForm") Tweet tweet) {
+        int result = tweetDAO.add(tweet);
+        if (result == 1) {
+            return ResponseEntity.ok("{\"message\": \"Success!\"}");
+        }
+        else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"message\": \"Error!\"}");
+        }
     }
 
     // GET ALL TWEETS

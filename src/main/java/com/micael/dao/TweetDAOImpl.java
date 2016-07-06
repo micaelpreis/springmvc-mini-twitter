@@ -8,6 +8,7 @@ import javax.sql.DataSource;
 
 import com.micael.model.Tweet;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -24,11 +25,15 @@ public class TweetDAOImpl implements TweetDAO {
     }
 
     @Override
-    public void add(Tweet tweet) {
+    public int add(Tweet tweet) {
         String username = getUsername();
         String sql = "INSERT INTO tweets (tweet, user_username)" + " VALUES (?, ?)";
-
-        jdbcTemplate.update(sql, tweet.getTweet(), username);
+        try {
+            return jdbcTemplate.update(sql, tweet.getTweet(), username);
+        }
+        catch (DataIntegrityViolationException e) {
+            return 0;
+        }
     }
 
     @Override

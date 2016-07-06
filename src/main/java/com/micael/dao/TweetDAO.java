@@ -6,7 +6,7 @@ import com.micael.model.Tweet;
 
 public interface TweetDAO {
 
-    void add(Tweet tweet);
+    int add(Tweet tweet);
     List<Tweet> searchTweets(String search);
     List<Tweet> searchUserTweets(String username, String search);
 }

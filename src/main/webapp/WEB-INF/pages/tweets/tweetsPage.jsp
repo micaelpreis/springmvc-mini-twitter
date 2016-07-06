@@ -3,7 +3,7 @@
 <html>
 <head>
   <title>Mini Twitter :: Tweets</title>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 </head>
 <body style="margin: 0px;">
   <jsp:include page="../_menu.jsp" />
