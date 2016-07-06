@@ -42,6 +42,15 @@ Create the backend for a mini messaging service, inspired by Twitter. It should 
   * reset_mini_twitter.sql - Only if you need to delete the data on your database
     * if you run this script, you need to run the two scripts above, after.
 3. Import the project to IntelliJ or other IDE.
-4. Run the project on Tomcat 8
+4. Configure the run configurations of the project
+  * on IntelliJ do the following steps:
+    1. go to Run > Edit Configurations
+    2. click on the '+' on the top left of the window
+    3. add Tomcat Server > Local
+    4. go to the 'Deployment' tab
+    5. click on '+' and choose 'Artifact'
+    6. select 'MiniTwitter:war'
+    7. Apply the changes
+4. Run the project
 5. Use the application on your browser or by doing requests to the API
   * to use the endpoints of the application, you first need to successfully login
