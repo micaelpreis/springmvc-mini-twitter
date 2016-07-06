@@ -35,8 +35,7 @@ Create the backend for a mini messaging service, inspired by Twitter. It should 
 #### How To Run The Application
 
 1. Create the database 'minitwitter' on MySQL
-  * If need be, change the username and password on the file "/src/main/webapp/WEB-INF/script-database.xml"
-  * If need be, change the username and password on the file "[script-database.xml](src/main/webapp/WEB-INF/script-database.xml)"
+  * If need be, change the username and password on the file "[spring-database.xml](src/main/webapp/WEB-INF/spring-database.xml)"
 2. Run the scripts present on the 'scripts' folder on the following order:
   * create_mini_twitter.sql
   * populate_mini_twitter.sql
