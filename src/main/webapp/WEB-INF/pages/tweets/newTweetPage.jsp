@@ -30,7 +30,7 @@
   <script>
     function tweet(tweet){
       var tweet = document.getElementById("tweet").value;
-      $.post("/tweet/create",{tweet:tweet,commandName:"tweetForm"}).always(function(data){
+      $.post("${pageContext.request.contextPath}/tweet/create",{tweet:tweet,commandName:"tweetForm"}).always(function(data){
         alert(data.message);
         window.location = "${pageContext.request.contextPath}/index";
       });

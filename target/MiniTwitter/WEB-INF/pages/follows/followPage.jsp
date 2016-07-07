@@ -39,14 +39,14 @@
 
   <script>
     function follow(username){
-      $.post("/users/follow",{username:username,commandName:"followForm"}).always(function(data){
+      $.post("${pageContext.request.contextPath}/users/follow",{username:username,commandName:"followForm"}).always(function(data){
         alert(data.message);
         location.reload();
       });
     }
 
     function unfollow(username){
-      $.post("/users/unfollow",{username:username,commandName:"unfollowForm"}).always(function(data){
+      $.post("${pageContext.request.contextPath}/users/unfollow",{username:username,commandName:"unfollowForm"}).always(function(data){
         alert(data.message);
         location.reload();
       });
