@@ -13,24 +13,29 @@ Create the backend for a mini messaging service, inspired by Twitter. It should 
 4. Authentication
 5. Output in XML or JSON
 
-#### Login
+#### Authentication
 
-* **POST** - /dologin
-  * username
-  * password
+* **POST** - /dologin - login to the application
+  * parameters:
+    * username - login username
+    * password - login password
+* **POST** - /logout - logout from the application
 
 #### Endpoints
 
 * **POST** - /tweet/create - create a new tweet
-  * tweet
+  * parameters:
+    * tweet - text of the tweet to add
 * **GET** - /tweets?search=[query] - search for tweets of all users
 * **GET** - /tweets/[username]?search=[query] - search for tweets of specific user
 * **GET** - /following - list of users the user follows
 * **GET** - /followers - list of users that follow the user
 * **POST** - /users/follow - start following a user
-  * username
+  * parameters:
+    * username - username of the user to start following
 * **POST** - /users/unfollow - start unfollowing a user
-  * username
+  * parameters:
+    * username - username of the user to stop following
 
 #### How To Run The Application
 
